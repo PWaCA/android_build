@@ -181,7 +181,7 @@ include $(BUILD_SYSTEM)/device.mk
 
 # A PWC build needs only the PWC product makefiles.
 ifneq ($(PWC_BUILD),)
-  all_product_configs := $(shell ls device/*/$(PWC_BUILD)/pwc.mk)
+  all_product_configs := $(shell find device -path "*/$(PWC_BUILD)/pwc.mk")
 else
   ifneq ($(strip $(TARGET_BUILD_APPS)),)
   # An unbundled app build needs only the core product makefiles.
